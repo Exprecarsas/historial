@@ -28,9 +28,7 @@
             <h2 id="global-counter">Unidades descargadas: 0 de 0 </h2>
         </div>
     </div>
-    <!-- Input para subir archivo CSV -->
-    <input type="file" id="csvFileInput" accept=".csv">
-    <button id="load-csv">Cargar CSV</button><br>
+   
 
     <!-- Campo de entrada para escanear código de barras -->
     <input type="text" id="barcodeInput" placeholder="Escanea el código de barras aquí...">
@@ -68,13 +66,7 @@
         <h2 id="global-counter-scanner">Unidades descargadas: 0 de 0 </h2>
     </div>
 
-    <!-- Contenedor para mostrar el resultado temporal (check de éxito o error) -->
-    <div id="scan-result"
-        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: none; background: rgba(0, 0, 0, 0.75); color: #fff; padding: 20px; border-radius: 50%;">
-        <span id="result-icon" style="font-size: 48px;"></span>
-    </div>
-
-    <!-- Modal para ingresar datos adicionales -->
+       <!-- Modal para ingresar datos adicionales -->
     <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
             <h3>Información de la Descarga</h3>
@@ -91,7 +83,6 @@
 
     <!-- Incluye las bibliotecas necesarias -->
     <script src="https://cdn.jsdelivr.net/npm/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <script src="app.js"></script>
@@ -99,7 +90,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/Descarg/sw.js')
+                navigator.serviceWorker.register('/historial/sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado con éxito: ', registration);
                     })
