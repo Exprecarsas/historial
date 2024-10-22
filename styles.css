@@ -261,3 +261,26 @@ button:hover {
         margin: auto;
     }
 }
+/* Estilo para el botón "Generar Reporte" en verde */
+.btn-generar-reporte {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 120px; /* Más ancho para botón rectangular */
+    height: 50px; /* Mantener altura */
+    font-size: 18px; /* Ajustar tamaño de fuente si es necesario */
+    cursor: pointer;
+    border-radius: 10px; /* Borde ligeramente redondeado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-generar-reporte i {
+    font-size: 20px; /* Tamaño del icono */
+    margin-right: 8px; /* Espacio entre icono y texto */
+}
+.btn-generar-reporte:hover {
+    background-color: #45a049; /* Verde más oscuro en hover */
+}
+

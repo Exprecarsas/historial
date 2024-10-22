@@ -7,6 +7,8 @@
     <title>Gestión de Unidades Escaneadas</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script>
+    <!-- Incluye la librería de FontAwesome en el head para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#cc414d">
 </head>
@@ -36,7 +38,7 @@
 
     <div>
         <!-- Botón de la cámara en la parte superior derecha -->
-        <button id="btn-abrir-camara" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">
+        <button id="btn-abrir-camara" style="display: none; position: absolute; top: 10px; right: 10px; z-index: 1000;">
             <img src="https://images.vexels.com/content/157862/preview/barcode-scanning-icon-1c9119.png" alt="Cámara" />
         </button>
     </div>
@@ -44,8 +46,10 @@
     <h2>Unidades Escaneadas</h2>
     <ul id="scanned-list"></ul>
 
-    <!-- Botón para finalizar descarga -->
-    <button id="finalizar-descarga">Finalizar Descarga</button>
+    <!-- Botón de generar reporte con icono de descarga -->
+<button id="finalizar-descarga" class="btn-generar-reporte" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">  Descargar
+    <i class="fas fa-download"></i> <!-- Ícono de descarga -->
+</button>
     <button id="terminar-proceso">Terminar Proceso</button>
     </div>
 
@@ -77,8 +81,10 @@
             <input type="text" id="placa" placeholder="Placa de Vehículo">
             <input type="text" id="remitente" placeholder="Remitente">
             <input type="text" id="fecha" disabled>
-            <button id="generar-reporte">Generar Reporte</button>
-            <button id="cerrar-modal" style="background-color: #00aa09; color: white; margin-top: 10px;">Cerrar</button>
+            <button id="generar-reporte" style="background-color: #4CAF50; color: white; margin-top: 10px;"> Generar Reporte 
+                <i class="fas fa-file-excel"></i>
+            </button>
+            <button id="cerrar-modal" style="background-color: #cc414d; color: white; margin-top: 10px;">Cerrar</button>
             <!-- Botón de cierre -->
         </div>
     </div>
