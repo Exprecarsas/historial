@@ -1,6 +1,6 @@
 {
   "name": "historial de Unidades Escaneadas",
-  "short_name": "Historial",
+  "short_name": "Historial Unidades",
   "description": "App para gestionar el historial del escaneo de unidades.",
   "start_url": "/historial/",
   "display": "standalone",
