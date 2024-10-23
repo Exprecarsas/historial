@@ -1,4 +1,4 @@
-const CACHE_NAME = 'gestión-unidades-v1';
+const CACHE_NAME = 'Historial de Unidades';
 const urlsToCache = [
   '/',
   '/index.html',
