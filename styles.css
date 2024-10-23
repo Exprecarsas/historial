@@ -21,13 +21,19 @@ h1 {
     margin-bottom: 10px;
 }
 
-h2 {
+/* Ajustar el contador de unidades escaneadas */
+h2#global-counter {
     background-color: #cc414d;
     color: white;
-    padding: 10px;
+    padding: 10px 40px; /* Aumenta el espacio a los lados */
     border-radius: 5px;
     margin-bottom: 20px;
+    display: inline-block; /* Ajusta el ancho al contenido */
+    font-size: 1.5rem; /* Tamaño de fuente equilibrado */
+    text-align: center;
+    max-width: 80%; /* Esto permite que tenga un tamaño más grande, pero no ocupa todo el ancho */
 }
+
 
 /* Campo de entrada y botón de escaneo */
 #barcodeInput {
@@ -85,12 +91,12 @@ table th, table td {
 }
 
 thead {
-    background-color: #cc414d;
+    background-color: #b42e39;
     color: white;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #bddb92ce;
 }
 
 /* Estilos para botones */
@@ -258,5 +264,19 @@ button:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10000;
+}
+/* En pantallas pequeñas (menores a 768px), reducir el tamaño del botón */
+@media (max-width: 768px) {
+    #abrir-modal {
+        top: 70px; /* Mueve el botón hacia abajo */
+        right: 10px;
+        padding: 6px; /* Reduce el padding para que sea más pequeño */
+        font-size: 12px; /* Reduce el tamaño de fuente */
+        width: 80px; /* Cambia el ancho del botón */
+    }
+
+    #abrir-modal i {
+        font-size: 12px; /* Ajusta el tamaño del ícono */
+    }
 }
 
