@@ -4,98 +4,144 @@ body {
     margin: 0;
     padding: 20px;
     text-align: center;
+    background-color: #f9f9f9;
 }
 
-/* Ajuste general de botones y campos de entrada */
-button, input {
+/* Estilo para el encabezado y la información de escaneo */
+#main-content {
+    margin-bottom: 20px;
+}
+
+#logo-exprecar img {
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+h2 {
+    background-color: #cc414d;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Campo de entrada y botón de escaneo */
+#barcodeInput {
     padding: 10px;
     font-size: 16px;
+    width: 70%;
+    max-width: 400px;
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
-/* Estilo general de botones */
-button {
+#start-scanning {
     background-color: #cc414d;
     color: white;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#start-scanning:hover {
+    background-color: #b33a40;
+}
+
+/* Botón de abrir la cámara (oculto por defecto) */
+#btn-abrir-camara {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#btn-abrir-camara img {
+    width: 70px;
+    height: 70px;
+}
+
+/* Tabla para mostrar los códigos escaneados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #fff;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+thead {
+    background-color: #cc414d;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para botones */
+button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #cc414d;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #b33a40;
 }
 
-/* Contenedor de la lista de productos escaneados */
-#scanned-list {
-    display: flex; /* Flexbox para alineación */
-    flex-wrap: wrap; /* Permitir que los elementos se ajusten */
-    justify-content: center; /* Centrar los elementos */
-    gap: 15px; /* Espacio entre los elementos */
-    padding: 10px;
-}
-
-/* Estilo para cada elemento de la lista */
-#scanned-list li {
-    list-style: none;
-    padding: 15px;
-    border-radius: 8px;
-    color: #ffffff;
-    text-align: center;
-    min-width: 280px; /* Ancho mínimo */
-    max-width: 320px; /* Ancho máximo */
-    word-wrap: break-word; /* Ajustar texto largo */
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    transition: background-color 0.5s ease; /* Transición suave para los colores */
-}
-
-/* Colores para diferentes estados */
-.status-complete {
-    background-color: #4CAF50; /* Verde si está completo */
-}
-
-.status-warning {
-    background-color: #FFC107; /* Amarillo si está en progreso */
-}
-
-.status-incomplete {
-    background-color: #cc414d; /* Rojo si no está escaneado */
-}
-
-/* Barra de progreso */
-.progress-bar {
-    background-color: #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 20px;
-    margin: 10px 0;
-}
-
-.progress-bar-inner {
+/* Botón para abrir modal (Descargar) */
+#abrir-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
     background-color: #4CAF50;
-    height: 100%;
-    width: 0;
-    transition: width 0.5s;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-.progress-text {
-    display: block;
-    margin-top: 5px;
+#abrir-modal i {
+    margin-left: 5px;
 }
 
-/* Estilo específico para la ciudad */
-.city {
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #ffffff;
+#abrir-modal:hover {
+    background-color: #45a049;
 }
 
-/* Modal */
+/* Botón para terminar proceso */
+#terminar-proceso {
+    background-color: #cc414d;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+#terminar-proceso:hover {
+    background-color: #b33a40;
+}
+
+/* Modal para la información de la descarga */
 .modal {
     position: fixed;
     top: 0;
@@ -106,50 +152,78 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 100%;
-    margin: auto;
+    width: 90%;
+    max-width: 400px;
 }
 
-/* Botón para cerrar el contenedor */
-#close-scanner {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #cc414d;
-    color: white;
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-/* Barra de estado para contadores globales */
-#global-counter, #global-counter-scanner {
+.modal-content button#cerrar-modal {
     background-color: #cc414d;
-    color: white;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    z-index: 10000;
 }
 
-#global-counter-scanner {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+.modal-content button#cerrar-modal:hover {
+    background-color: #b33a40;
 }
 
-/* Contenedor principal para la cámara */
+.modal-content button#generar-reporte {
+    background-color: #4CAF50;
+}
+
+.modal-content button#generar-reporte:hover {
+    background-color: #45a049;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    #barcodeInput {
+        width: 90%;
+    }
+
+    button {
+        width: 90%;
+        margin: 5px auto;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    #abrir-modal {
+        right: 5px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Estilos para el contenedor del escáner */
 #scanner-container {
     position: fixed;
     top: 0;
@@ -160,10 +234,10 @@ button:hover {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    display: none; /* Se muestra solo cuando se activa */
+    display: none;
 }
 
-/* Video de la cámara */
+/* Video del escáner */
 #scanner-video {
     width: 90%;
     max-width: 600px;
@@ -171,116 +245,18 @@ button:hover {
     border: 3px solid #ffffff;
     border-radius: 10px;
 }
-/* Cuadro de enfoque dinámico */
+
+/* Cuadro de enfoque para el escáner */
 #focus-box {
     position: absolute;
     border: 4px dashed #00ff00;
     width: 250px;
     height: 250px;
     box-sizing: border-box;
-    pointer-events: none; /* Para que no interfiera con el video */
+    pointer-events: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10000; /* Asegura que esté sobre el video */
-}
-
-/* Botón de la cámara */
-#btn-abrir-camara {
-    display: flex;
-    background-color: transparent;
-    justify-content: right;
-    align-items: right;
-    border: none;
-    cursor: pointer;
-}
-
-#btn-abrir-camara img {
-    width: 70px;
-    height: 70px;
-}
-
-#scan-result {
-    display: none;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: #fff;
-    padding: 20px;
-    border-radius: 50%;
-    text-align: center;
-    z-index: 9999;
-}
-
-#result-icon {
-    font-size: 48px;
-}
-
-/* Clase para mostrar temporalmente el contenedor */
-.show-result {
-    display: block !important;
-}
-
-/* Ajustes específicos para dispositivos móviles */
-@media (max-width: 768px) {
-    #scanned-list li {
-        min-width: 100%; /* Ajusta el ancho completo en móviles */
-    }
-
-    #scanner-video {
-        width: 95%; /* Ajuste del video en móviles */
-        height: auto;
-    }
-
-    button, input {
-        width: 90%; /* Ancho del 90% para botones */
-        padding: 15px;
-        font-size: 16px;
-        margin: 5px 0;
-    }
-
-    .modal-content {
-        width: 90%;
-        margin: auto;
-    }
-}
-
-/* Ajustes específicos para dispositivos de escritorio */
-@media (min-width: 769px) {
-    button, input {
-        width: 300px;
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    #scanned-list li {
-        min-width: 300px;
-        max-width: 350px;
-    }
-
-    .modal-content {
-        width: 50%;
-        margin: auto;
-    }
-}
-/* Estilo para el botón "Generar Reporte" en verde */
-.btn-generar-reporte {
-    background-color: #4CAF50; /* Verde */
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 120px; /* Más ancho para botón rectangular */
-    height: 50px; /* Mantener altura */
-    font-size: 18px; /* Ajustar tamaño de fuente si es necesario */
-    cursor: pointer;
-    border-radius: 10px; /* Borde ligeramente redondeado */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.btn-generar-reporte i {
-    font-size: 20px; /* Tamaño del icono */
-    margin-right: 8px; /* Espacio entre icono y texto */
-}
-.btn-generar-reporte:hover {
-    background-color: #45a049; /* Verde más oscuro en hover */
+    z-index: 10000;
 }
 
