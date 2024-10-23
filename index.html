@@ -25,10 +25,10 @@
         </div>
         <div>
             <h1>Escaneo de Unidades</h1>
-            <h2 id="global-counter">Unidades descargadas: 0 de 0 </h2>
+            <h2 id="global-counter">Unidades Escaneadas: 0 </h2>
         </div>
     </div>
-   
+
 
     <!-- Campo de entrada para escanear código de barras -->
     <input type="text" id="barcodeInput" placeholder="Escanea el código de barras aquí...">
@@ -40,14 +40,25 @@
             <img src="https://images.vexels.com/content/157862/preview/barcode-scanning-icon-1c9119.png" alt="Cámara" />
         </button>
     </div>
-
-    <h2>Unidades Escaneadas</h2>
-    <ul id="scanned-list"></ul>
+    <!-- Tabla para mostrar los códigos escaneados y la hora -->
+    <table id="tabla-codigos" border="1" style="margin-top: 20px; width: 100%; text-align: center;">
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Código Escaneado</th>
+                <th>Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los códigos escaneados se agregarán aquí -->
+        </tbody>
+    </table>
 
     <!-- Botón de generar reporte con icono de descarga -->
-<button id="finalizar-descarga" class="btn-generar-reporte" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">  Descargar
-    <i class="fas fa-download"></i> <!-- Ícono de descarga -->
-</button>
+    <button id="abrir-modal" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">Descargar
+
+        <i class="fas fa-download"></i> <!-- Ícono de descarga -->
+    </button>
     <button id="terminar-proceso">Terminar Proceso</button>
     </div>
 
@@ -62,18 +73,18 @@
         <button id="close-scanner" style="position: absolute; top: 10px; right: 10px; z-index: 10000;">
             Cerrar
         </button>
-        <!-- Contador global del escáner -->
-        <h2 id="global-counter-scanner">Unidades descargadas: 0 de 0 </h2>
+
     </div>
 
-       <!-- Modal para ingresar datos adicionales -->
+    <!-- Modal para ingresar datos adicionales -->
     <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
             <h3>Información de la Descarga</h3>
             <input type="text" id="placa" placeholder="Placa de Vehículo">
             <input type="text" id="remitente" placeholder="Remitente">
             <input type="text" id="fecha" disabled>
-            <button id="generar-reporte" style="background-color: #4CAF50; color: white; margin-top: 10px;"> Generar Reporte 
+            <button id="generar-reporte" style="background-color: #4CAF50; color: white; margin-top: 10px;"> Generar
+                Reporte
                 <i class="fas fa-file-excel"></i>
             </button>
             <button id="cerrar-modal" style="background-color: #cc414d; color: white; margin-top: 10px;">Cerrar</button>
